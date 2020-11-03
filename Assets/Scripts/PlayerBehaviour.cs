@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerBehaviour : MonoBehaviour
 {
 
-    private Quaternion lookRotation;
+    private float speed = 50.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -19,23 +19,19 @@ public class PlayerBehaviour : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        transform.Translate(0, 0, moveVertical);
-        transform.Translate(moveHorizontal, 0, 0);
+        transform.Translate(0, 0, moveVertical*Time.deltaTime*speed);
+        transform.Translate(moveHorizontal*Time.deltaTime*speed, 0, 0);
 
         if (Input.GetKey(KeyCode.Q))
         {
-            transform.Rotate(0, -1.0f, 0);
+            transform.Rotate(0, -1.0f * Time.deltaTime*speed, 0);
         }
 
         if (Input.GetKey(KeyCode.E))
         {
-            transform.Rotate(0, 1.0f, 0);
+            transform.Rotate(0, 1.0f * Time.deltaTime*speed, 0);
         }
 
-        lookRotation = Quaternion.LookRotation(transform.forward);
     }
 
-    public Quaternion getRotation(){
-        return lookRotation;
-    }
 }

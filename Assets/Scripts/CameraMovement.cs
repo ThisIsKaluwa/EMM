@@ -17,9 +17,8 @@ public class CameraMovement : MonoBehaviour
     void Update()
     {
         
-        Quaternion rotation = player.GetComponent<PlayerBehaviour>().getRotation();
-        transform.rotation = rotation;
-        //transform.position = player.transform.position + offset;
-        transform.position = player.transform.position + rotation * offset;
+        
+        transform.rotation = player.transform.rotation;
+        transform.position = player.transform.position + player.transform.rotation * offset;
     }
 }

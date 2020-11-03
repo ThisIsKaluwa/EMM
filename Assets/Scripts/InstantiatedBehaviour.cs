@@ -14,8 +14,8 @@ public class InstantiatedBehaviour : MonoBehaviour
     void Update()
     {
 
-     Transform instance = GetComponent<Transform>();
-     instance.Rotate(0,50*Time.deltaTime,0);
+     
+     transform.Rotate(0,50*Time.deltaTime,0);
 
     }
 }

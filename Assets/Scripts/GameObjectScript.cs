@@ -15,7 +15,6 @@ public class GameObjectScript : MonoBehaviour
             //Instantiate(myPrefab, new Vector3(i * 3.0f, 1, 1), Quaternion.identity);
             Vector3 randomPos = new Vector3(Random.Range(-500, 500), 2, Random.Range(-500, 500));
             Transform newObject = Instantiate(myPrefab, randomPos, Quaternion.identity);
-            newObject.gameObject.AddComponent<InstantiatedBehaviour>();
 
         }
     }
